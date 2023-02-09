@@ -35,10 +35,11 @@ main:
 	move $t2, $v0
 
 	slt $t3, $t0, $t1
+	#t7 holds 1
 	li $t7, 1
-	#t0 < t1	
+	#t0 < t1 in t3	
 	beq $t3, $t7, firstLess
-	move $t6, $t0 	
+	move $t6, $t1 	
 	j secondCompare
 
 firstLess:
@@ -47,7 +48,7 @@ firstLess:
 
 secondCompare:
 	slt $t3, $t6, $t2
-	#t6 less than t2
+	#t6 less than t2 in t3
 	beq $t3, $t7, secondLess
 	#t6 greater than t2
 	move $t6, $t2
